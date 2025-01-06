@@ -1,0 +1,171 @@
+:root{
+    --theme: #9734ff;
+    --background: #000000;
+    --background-div: #000000;
+    --background-button: #06000c;
+    --default-border: #9734ff;
+    --text: #9734ff;
+    --title: #9734ff;
+    --width-grid-tabuleiro: 3px;
+    --desable: #9734ff;
+}
+
+body{
+    background-color: #000000;
+    color: var(--text);
+}
+
+.no-padding{padding: 0px !important;}
+
+/* PLACAR */
+.placar{
+    margin-bottom: 40px;
+}
+.placar .col{padding: 0px 15px 0px 15px;}
+.placar .jogador{
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--default-border);
+    border-radius: 6px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.placar .jogador .pontos{color: var(--text); text-align: right;}
+.placar .jogador .target{color: var(--title);}
+@media(max-width: 768px){
+    .placar .jogador{text-align: center;}
+    .placar .jogador .pontos{text-align: center;}
+}
+
+.placar .jogador.jogador-x{float:right;}
+.placar .jogador.jogador-o{float:left;}
+
+.ativo{transition: .5s;}
+
+.placar .jogador.ativo{border: 1px solid var(--theme); background-color: var(--background-div);}
+/* fim - PLACAR */
+
+.row-jogo{
+    height: 100vh;
+    background-size: cover;
+}
+.tabuleiro{
+    max-width: 270px;
+    text-align: center;
+    margin: auto;
+}
+.tabuleiro .col-4{padding: 0px;}
+
+.casa{
+    border-radius: 0px;
+    background-color: transparent;
+    width: 100%;
+    height: 90px;
+    border: 10px solid var(--background);
+    box-shadow: none !important;
+    font-size: 40px;
+    transition: 0.2s;
+    color: var(--theme) !important;
+    border-radius: 60px;
+}
+.casa:hover{background-color: var(--background-div);}
+.casa:active{font-size: 20px;transition: 0.1s;}
+
+/* baixo estilos responsaveis pelas bordas das casas */
+.div-btn-0{border-bottom:var(--width-grid-tabuleiro) solid var(--theme);}
+.div-btn-1{border-left:var(--width-grid-tabuleiro) solid var(--theme);border-bottom:var(--width-grid-tabuleiro) solid var(--theme);}
+.div-btn-2{border-bottom:var(--width-grid-tabuleiro) solid var(--theme);border-left:var(--width-grid-tabuleiro) solid var(--theme);}
+.div-btn-3{border-bottom:var(--width-grid-tabuleiro) solid var(--theme);}
+.div-btn-4{border-left:var(--width-grid-tabuleiro) solid var(--theme);border-bottom:var(--width-grid-tabuleiro) solid var(--theme);}
+.div-btn-5{border-bottom:var(--width-grid-tabuleiro) solid var(--theme);border-left:var(--width-grid-tabuleiro) solid var(--theme);}
+.div-btn-7{border-left:var(--width-grid-tabuleiro) solid var(--theme);}
+.div-btn-8{border-left:var(--width-grid-tabuleiro) solid var(--theme);}
+
+.btn-changeJogadorAtivo{
+    background-color: var(--background-div);
+    color: var(--theme) !important;
+    border-radius: 50px;
+    border: 1px solid var(--default-border);
+    box-shadow: none !important;
+}
+.btn-changeJogadorAtivo:hover{border: 1px solid var(--theme);}
+.btn-changeJogadorAtivo.block{
+    color: var(--desable) !important;
+    border: 1px solid var(--default-border) !important;
+    cursor: not-allowed !important;
+    opacity: .7;
+}
+
+.btn-padrao{
+    border: 1px solid var(--default-border);
+    color: var(--theme) !important;
+    width: 100%;
+    box-shadow: none !important;
+    background-color: var(--background-button);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.btn-padrao:hover{border: 1px solid var(--theme);cursor: pointer;}
+.btn-padrao.block{
+    color: var(--desable) !important;
+    border: 1px solid var(--default-border) !important;
+    cursor: not-allowed !important;
+}
+
+.div-padrao{
+    background-color: var(--background-div);
+    border: 1px solid var(--default-border);
+    padding: 30px 50px;
+    border-radius: 6px;
+}
+
+.dropdown-menu{
+    background-color: var(--background-button);
+    border: 1px solid var(--default-border);
+}
+.dropdown-menu a{color: var(--text) !important;transition: .1s;}
+.dropdown-menu a:hover{background-color: var(--theme);}
+
+.modal .modal-content{
+    background-color: var(--background-div);
+    border: 1px solid var(--default-border);
+    color: var(--text);
+}
+.modal .modal-header{border-bottom: 1px solid var(--default-border); color: var(--title)}
+.modal .modal-footer{border-top: 1px solid var(--default-border);}
+
+.modal-center {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.modal-center.show {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+  
+.modal-center .modal-dialog {
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, 50%) !important;
+            transform: translate(-50%, 50%) !important;
+}
+
+.modal-backdrop.fade.show{
+    opacity: 0.9;
+    background-color: black;
+}
+.modal#modal-msgFimJogo .modal-content{
+    background-color: transparent;
+    border: none;
+    text-align: center;
+}
+.modal#modal-msgFimJogo .mensagem{
+    color: var(--theme);
+    font-size: 80px;
+}

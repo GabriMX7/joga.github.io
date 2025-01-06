@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jogo da Velha</title>
+        
+     </header>
+    <section id="home" class="d-flex justify-content-center align-items-center">
+        <div class="container">
+              <section id="home" class="d-flex justify-content-center align-items-center">
+            <div class="align-items-centerh row justify-content-center ">
+                <div class="align-items-center justify-content-center text-center">
+                <div class="col-md-6">
+                    <p class="title">SEJA BEM-VINDO</p>
+                    <p class="description">JOGO DA VELHAD</p>
+                 </svg>
+              </a>
+            </div>
+            
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- fim - Bootstrap -->
+
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- Fontawesome CSS  -->
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    </head>
+    <body>
+
+        <div class="container-fluid">
+            <div class="row align-items-center row-jogo">
+                <div class="col">
+
+                    <div class="container" style="padding: 15px 15px;">
+
+                        <div class="row placar align-items-center">
+                            <div class="col col-4 col-md-5">
+                                <div class="container jogador jogador-x ativo" id="jogador-x">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 target">X</div>
+                                        <div class="col-12 col-md-6 pontos" id="pontos-x">-</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4 col-md-2" style="text-align: center;">
+                                <button type="button" class="btn btn-changeJogadorAtivo" onclick="btnChangeJogadorAtivo()" id="btn-change-jogador-ativo"><i class="fas fa-exchange"></i></button>
+                            </div>
+                            <div class="col col-4 col-md-5">
+                                <div class="container jogador jogador-o" id="jogador-o">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 target">O</div>
+                                        <div class="col-12 col-md-6 pontos" id="pontos-o">-</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-7">
+
+                                <div class="container tabuleiro">
+                                    <div class="row">
+                                        <div class="col-4"><div class="div-btn-0"><button type="button" class="btn casa" onclick="clickBtn('btn-0')" id="btn-0"></button></div></div>
+                                        <div class="col-4"><div class="div-btn-1"><button type="button" class="btn casa" onclick="clickBtn('btn-1')" id="btn-1"></button></div></div>
+                                        <div class="col-4"><div class="div-btn-2"><button type="button" class="btn casa" onclick="clickBtn('btn-2')" id="btn-2"></button></div></div>
+                                        <div class="col-4"><div class="div-btn-3"><button type="button" class="btn casa" onclick="clickBtn('btn-3')" id="btn-3"></button></div></div>
+                                        <div class="col-4"><div class="div-btn-4"><button type="button" class="btn casa" onclick="clickBtn('btn-4')" id="btn-4"></button></div></div>
+                                        <div class="col-4"><div class="div-btn-5"><button type="button" class="btn casa" onclick="clickBtn('btn-5')" id="btn-5"></button></div></div>
+                                        <div class="col-4"><div class="div-btn-6"><button type="button" class="btn casa" onclick="clickBtn('btn-6')" id="btn-6"></button></div></div>
+                                        <div class="col-4"><div class="div-btn-7"><button type="button" class="btn casa" onclick="clickBtn('btn-7')" id="btn-7"></button></div></div>
+                                        <div class="col-4"><div class="div-btn-8"><button type="button" class="btn casa" onclick="clickBtn('btn-8')" id="btn-8"></button></div></div>
+                                    </div>
+                                </div>
+            
+                            </div>
+                            <div class="col">
+                                <div class="container div-padrao" style="text-align: center; margin-top: 30px;">
+                                    <div class="row">
+                                        <div class="col-12 no-padding">
+
+                                            <div class="dropdown">
+                                                <button class="btn btn btn-padrao dropdown-toggle" type="button" id="modo-jogo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Modo De Jogo - <span id="modo-jogo-atual">Singleplayer</span>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="modo-jogo">
+                                                    <a class="dropdown-item" onclick="changeModoJogo('Singleplayer')" href="#">Singleplayer</a>
+                                                    <a class="dropdown-item" onclick="changeModoJogo('Multiplayer')" href="#">Multiplayer</a>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-12 no-padding" id="col-deixar-bot-comecar">
+                                            <button type="button" class="btn btn-padrao" onclick="deixarBotComecar()" id="deixar-bot-comecar">Deixar O Bot Comecar</button>
+                                        </div>
+                                        <div class="col-12 no-padding d-none" id="col-btn-resetar-placar">
+                                            <button type="button" class="btn btn-padrao" data-toggle="modal" data-target="#confirmResetPlacar">
+                                                Resetar placar
+                                            </button>
+                                        </div>
+                                        <div class="col-12 no-padding d-none" id="col-btn-resetar-tabuleiro">
+                                            <button type="button" class="btn btn-padrao" data-toggle="modal" data-target="#confirmResetTabuleiro">
+                                                Resetar tabuleiro
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal fim de jogo -->
+        <div class="modal modal-center fade" id="modal-msgFimJogo" tabindex="-1" onclick="posFim.funcao()">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="mensagem" id="msg-vencedor">X Vencedor!</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="button" class="btn btn-padrao" data-dismiss="modal" style="max-width: 60px;"><i class="fas fa-gamepad"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal confirma esetar tabuleiro -->
+        <div class="modal fade" id="confirmResetTabuleiro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tem certeza?</h5>
+                    </div>
+                    <div class="modal-body">
+                        - O tabuleiro tera todas as suas casas zeradas;<br>
+                        - O placar permanecera do jeito que esta;<br>
+                        - O jogador na vez atual continuara na vez;<br>
+                        - Essa acao nao podera ser desfeita depois de confirmada.<br>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-padrao" data-dismiss="modal" onclick="resetTabuleiro()">Confirmar</button>
+                        <button type="button" class="btn btn-padrao" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal confirma esetar placar -->
+        <div class="modal fade" id="confirmResetPlacar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tem certeza?</h5>
+                    </div>
+                    <div class="modal-body">
+                        - Todos os pontos contabilizados no placar serao zerados;<br>
+                        - O tabuleiro permanecera do jeito que esta;<br>
+                        - O jogador na vez atual continuara na vez;<br>
+                        - Essa acao nao podera ser desfeita depois de confirmada.<br>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-padrao" data-dismiss="modal" onclick="resetPlacar()">Confirmar</button>
+                        <button type="button" class="btn btn-padrao" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/logica.js"></script>
+    </body>
+</html>
